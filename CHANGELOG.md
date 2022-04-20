@@ -1,3 +1,7 @@
+## 2.4.1 (April 19, 2022)
+- `ADDED` Add eager playback global option ([#2](https://github.com/tunein/howler.js/pull/1)).
+- `ADDED` Add codec support for HLS (m3u8 and m3u formats) and fix bug where codec setup can execute more than once. ([#2](https://github.com/tunein/howler.js/pull/2)).
+
 ## 2.2.3 (June 30, 2021)
 - `FIXED` Fatal error in Chrome for iOS ([#1491](https://github.com/goldfire/howler.js/issues/1491)).
 
