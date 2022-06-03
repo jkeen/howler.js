@@ -266,8 +266,16 @@
         return self;
       }
 
-      var mpegTest = audioTest.canPlayType('audio/mpeg;').replace(/^no$/, '');
-      var hlsTest = audioTest.canPlayType('application/vnd.apple.mpegurl').replace(/^no$/, '');
+      var audioMpegCanPlayType, mpegTest, hlsTest;
+
+      try {
+        audioMpegCanPlayType = audioTest.canPlayType('audio/mpeg;')
+        mpegTest = audioMpegCanPlayType.replace(/^no$/, '');
+        hlsTest = audioTest.canPlayType('application/vnd.apple.mpegurl').replace(/^no$/, '');
+      } catch (e) {
+        console.error('Audio/mpeg canPlayType', audioMpegCanPlayType);
+        console.error('Issue with canPlayType', e);
+      }
 
       // Opera version <33 has mixed MP3 support, so we need to check for and block it.
       var ua = self._navigator ? self._navigator.userAgent : '';
